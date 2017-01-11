@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="TodoApp">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+</head>
+
+<body>
+  <h1>Ma todo liste</h1>
+  <div ng-controller="TodoController" ng-cloak>
+    <form ng-submit="addItem(newItem)">
+      <input type="text" ng-model="newItem" placeholder="Nouvelle chose à faire">
+    </form>
+    <p>{{ list.length }} élément(s)</p>
+    <ul>
+      <li ng-repeat="item in list track by $index" ng-click="removeItem($index)">{{item}}</li>
+    </ul>
+    <button ng-click="clear();">Vider la liste</button>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+  <script src="app.js" charset="utf-8"></script>
+</body>
+
+</html>
